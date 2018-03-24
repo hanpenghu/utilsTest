@@ -228,7 +228,30 @@ public strictfp class p {
     }*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /**
+     *下面一个方法是为了解决String.valueOf(str)当str=null的情况的方法
+     * */
+    public static String strValeOf(Object o){
+        if (null==o){
+            return "null";
+        }else {
+            return String.valueOf(o);
+        }
+    }
+    public static String strValeOfNull(Object o){
+        if (null==o){
+            return null;
+        }else {
+            return String.valueOf(o);
+        }
+    }
+    public static String strValeOfSpace(Object o){
+        if (null==o){
+            return "";
+        }else {
+            return String.valueOf(o);
+        }
+    }
     /**
      *字符串空与null互转
      * */
@@ -783,9 +806,9 @@ public strictfp class p {
      ****************************************************************************************
      * */
     //@Test
-    public void f2(){
-        p(dtoStrs(new Date()));
-    }
+//    public void f2(){
+//        p(dtoStrs(new Date()));
+//    }
 
     /**
      ****************************************************************************************
@@ -984,12 +1007,12 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
         return p.dtoStr(p.sjc2Date(longSjc),geShi);
 
     }
-    /*public static void main(String[]args){
-        //1970-01-01 08:02:01.344得到这种形式
-         p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(sjc2StrDate("121344"))).sad(p.dexhx).gad());
-        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(sjc2StrDate(121344L))).sad(p.dexhx).gad());
-        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(sjc2StrDate(121344L,d16))).sad(p.dexhx).gad());
-    }*/
+//    public static void main(String[]args){
+//        //1970-01-01 08:02:01.344得到这种形式
+//         p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(sjc2StrDate("121344"))).sad(p.dexhx).gad());
+//        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(sjc2StrDate(121344L))).sad(p.dexhx).gad());
+//        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(sjc2StrDate(121344L,d16))).sad(p.dexhx).gad());
+//    }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      *把所有是类中所有是null的字段,如果是String类型,变成""
@@ -1093,9 +1116,9 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //@Test
-    public void f5(){
-        p(Date.class.getName());
-    }
+//    public void f5(){
+//        p(Date.class.getName());
+//    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
@@ -1203,63 +1226,63 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //@Test
-    public void f6(){
-        p.p("".getClass().getTypeName());
-        p.p(new Integer(5).getClass().getTypeName());
-        p.p(new BigDecimal(5).getClass().getTypeName());
-        p.p(new BigDecimal(5).equals(new BigDecimal(6)));//false
-        p.p(new BigDecimal(5).equals(new BigDecimal(5)));//true
-    }
+//    public void f6(){
+//        p.p("".getClass().getTypeName());
+//        p.p(new Integer(5).getClass().getTypeName());
+//        p.p(new BigDecimal(5).getClass().getTypeName());
+//        p.p(new BigDecimal(5).equals(new BigDecimal(6)));//false
+//        p.p(new BigDecimal(5).equals(new BigDecimal(5)));//true
+//    }
 
 
     /**
      *System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~实验~~~~~~~~~~~~~~~~~~~~~~~~");
      * */
-    public class x{
-        public int x=1;
-        public String str="str";
-
-        public int getX() {
-            return x;
-        }
-
-        public x setX(int x) {
-            this.x = x;
-            return this;
-        }
-
-        public String getStr() {
-            return str;
-        }
-
-        public x setStr(String str) {
-            this.str = str;
-            return this;
-        }
-
-        @Override
-        public String toString() {
-            final StringBuffer sb = new StringBuffer("com.winwin.picreport.Futils.hanhan.p.x{");
-            sb.append("x=").append(x);
-            sb.append(", str='").append(str).append('\'');
-            sb.append('}');
-            return sb.toString();
-        }
-    }
+//    public class x{
+//        public int x=1;
+//        public String str="str";
+//
+//        public int getX() {
+//            return x;
+//        }
+//
+//        public x setX(int x) {
+//            this.x = x;
+//            return this;
+//        }
+//
+//        public String getStr() {
+//            return str;
+//        }
+//
+//        public x setStr(String str) {
+//            this.str = str;
+//            return this;
+//        }
+//
+//        @Override
+//        public String toString() {
+//            final StringBuffer sb = new StringBuffer("com.winwin.picreport.Futils.hanhan.p.x{");
+//            sb.append("x=").append(x);
+//            sb.append(", str='").append(str).append('\'');
+//            sb.append('}');
+//            return sb.toString();
+//        }
+//    }
 
     /**
      *
      * */
     //@Test
-    private void f7(){
-        Field[] declaredFields = x.class.getDeclaredFields();
-        for(Field field:declaredFields){
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~实验~~~~~~~~~~~~~~~~~~~~~~~~");
-            p.p(field.getName());
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~实验~~~~~~~~~~~~~~~~~~~~~~~~");
-        }
-
-    }
+//    private void f7(){
+//        Field[] declaredFields = x.class.getDeclaredFields();
+//        for(Field field:declaredFields){
+//            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~实验~~~~~~~~~~~~~~~~~~~~~~~~");
+//            p.p(field.getName());
+//            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~实验~~~~~~~~~~~~~~~~~~~~~~~~");
+//        }
+//
+//    }
  /**
      *输入一个字符串格式的数字,然后四舍五入到max和min的小数位数,一般max
      * 和min的值都写一样,比如max=min=4就是说四舍五入后小数后面留4位
@@ -1270,6 +1293,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             b = new BigDecimal(num);
         } catch (Exception e) {
             p("p.getNum yao format de bu shi shuZi001");
+            e.printStackTrace();
             return null;
         }
         try {
@@ -1279,6 +1303,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             return f.format(b);
         } catch (Exception e) {
             p("p.getNum yao format de bu shi shuZi002");
+            e.printStackTrace();
             return null;
         }
     }
@@ -1289,16 +1314,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 
 
-    /**
-     *下面一个方法是为了解决String.valueOf(str)当str=null的情况的方法
-     * */
-    public static String strValeOf(Object o){
-        if (null==o){
-            return "null";
-        }else {
-            return String.valueOf(o);
-        }
-    }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
