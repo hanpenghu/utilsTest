@@ -146,13 +146,12 @@ public strictfp class p {
     public final static String baoCunChengGong="baoCunChengGong";
     public final static String baoCunChengGongCh="保存成功";
     public final static String charsetUtf8="application/json;charset=utf-8";
-    //    public final static String ;
-//    private String ads="";
-//    private StringBuffer sb=new StringBuffer();
-//    private List lin=new LinkedList();
-//    private List arl=new ArrayList();
-//    private Map<String,Object>map=new HashMap<>();
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
     /**
      *生成新类new封装
      * */
@@ -168,8 +167,55 @@ public strictfp class p {
     public static void p(Object o){
         System.out.println(o);
     }
+    public static void p(String o){
+        System.out.println(o);
+    }
 
+    /**
+     *常用字符串组合打印或者log.error
+     * 封装
+     *
+     *
+     这种
+     *
+     *
+     * */
+    /**
+     *--------------------------------------------
+     123
+     --------------------------------------------
+     这种
+     * */
+    public static String str2Log(String str){
+        return manyMinus2+str+manyMinus2;
+    }
 
+    /**
+     *------------------log提示a-------------------
+     123
+     --------------------------------------------
+     这种
+     * */
+    public static String str2Log(String str,String msg){
+
+        int i;
+        int j;
+        if(msg.length()%2==0){
+            i=msg.length()/2;
+            j=i+1;
+        }else{
+            i=msg.length()/2+1;
+            j=i+1;
+        }
+
+        return manyMinus2.substring(0, manyMinusBefore.length() / 2-i)
+                +msg+manyMinus2.substring(manyMinusBefore.length() / 2+j)
+                +str+manyMinus2;
+
+    }
+//    public static void main(String[]args){
+//        p.p(str2Log("123","log提示a"));
+//    }
     /**
      *uuid封装
      * */
@@ -183,8 +229,21 @@ public strictfp class p {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     *字符串空与null互转
+     * */
+    /**
+     *null变空
+     * */
     public static String strNullToSpace(String s){
         return (null==s?"":s);
+    }
+
+    /**
+     *空变null
+     * */
+    public static String strSpaceToNull(String s){
+        return ("".equals(s)?null:s);
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
