@@ -1799,6 +1799,33 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //    }
 
 
+    /**
+     *java读取资源文件
+     * 读取properties文件
+     * 读取properties资源文件
+     * 资源读取不到返回null
+     * 注意   pr.getProperty("key");可以直接拿到 文件里面的东西
+     * */
+
+
+    public static Properties readProp(String propertiesPath){
+        Properties pr=new Properties();
+        try {
+            pr.load(new FileReader(propertiesPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+            //有异常的话,返回一个null;
+            return null;
+        }
+//        pr.getProperty("key");
+        return pr;
+    }
+
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
