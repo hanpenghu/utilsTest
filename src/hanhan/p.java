@@ -956,9 +956,9 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
         }
     }
     //@Test
-    public void f4() {
-        p(isFirstDateBig(new Date(), "2017/12/02"));//true
-    }
+//    public void f4() {
+//        p(isFirstDateBig(new Date(), "2017/12/02"));//true
+//    }
     /**
      ****************************************************************************************
      * */
@@ -987,6 +987,12 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
 
     }
 
+    /**
+     *new 一个日期
+     * */
+    public static Date getDate(){
+        return new Date();
+    }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //时间戳变成str格式时间
 
