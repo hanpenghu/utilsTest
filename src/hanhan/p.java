@@ -30,6 +30,10 @@ public strictfp class p {
     private final static String emailPattern2 =
             "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 
+    public static final String beiChuShu="beiChuShu";
+    public static final String chuShu="chuShu";
+    public static final String shang="shang";
+    public static final String yuShu="yuShu";
     public static final String xg="/";//斜杠
     public static final String sxg="//";//双斜杠
     public static final String gq="_____________________RuanJianGuoQi__________________________The software has expired, please contact the supplier_____________________RuanJianGuoQi__________________________";//过期提醒
@@ -677,14 +681,14 @@ public strictfp class p {
      * */
 
 
-    public static boolean isFirstBig(BigDecimal b1,BigDecimal b2){
+    public static boolean isFirstBigBigdecimal(BigDecimal b1,BigDecimal b2){
         return b1.compareTo(b2)==1?true:false;
     }
 
-    public static boolean isFistSmall(BigDecimal b1,BigDecimal b2){
+    public static boolean isFistSmallBigdecimal(BigDecimal b1,BigDecimal b2){
         return b1.compareTo(b2)==-1?true:false;
     }
-    public static boolean isEqual(BigDecimal b1,BigDecimal b2){
+    public static boolean isEqualBigdecimal(BigDecimal b1,BigDecimal b2){
         return b1.compareTo(b2)==0?true:false;
     }
 
@@ -694,6 +698,68 @@ public strictfp class p {
 //        p.p(p.isFistSmall(p.b(1),p.b(2)));
 //        p.p(p.isEqual(p.b(3),p.b(2)));
 //    }
+
+    /**
+     *bigdecimal加减乘除
+     * */
+
+
+    public static BigDecimal badd(BigDecimal b1,BigDecimal b2){
+       return bNull0(b1).add(bNull0(b2));
+    }
+
+    public static BigDecimal b1_b2(BigDecimal b1,BigDecimal b2){
+        return bNull0(b1).subtract(bNull0(b2));
+    }
+
+    public static BigDecimal b1Xb2(BigDecimal b1,BigDecimal b2){
+        return bNull0(b1).multiply(bNull0(b2));
+    }
+
+    public static BigDecimal b1ChuYib2Null(BigDecimal b1,BigDecimal b2){
+        if(isEqualBigdecimal(b2,b(0)))return null;
+        return bNull0(b1).divide(bNull0(b2));
+    }
+
+    public static BigDecimal b1ChuYib20(BigDecimal b1,BigDecimal b2){
+        if(isEqualBigdecimal(b2,b(0)))return b(0);
+        return bNull0(b1).divide(bNull0(b2));
+    }
+
+//    public static void main(String[]args){
+//                p(b1ChuYib2Null(b(4),b(0)));
+//    }
+
+
+    /**
+     *bigDecimal取余
+     * Bigdecimal取商
+     *
+     * */
+
+
+    public static Map<String,BigDecimal>bigDecimalChuFa(BigDecimal beiChuShu,BigDecimal chuShu){
+        BigDecimal[] results = beiChuShu.divideAndRemainder(chuShu);
+        BigDecimal shang=results[0];
+        BigDecimal yuShu=results[1];
+        Map<String,BigDecimal>map=new LinkedHashMap<>();
+        map.put("beiChuShu",beiChuShu);
+        map.put("chuShu",chuShu);
+        map.put("shang",shang);
+        map.put("yuShu",yuShu);
+        return map;
+
+    }
+
+//        public static void main(String[] args) {
+//            Map<String, BigDecimal> map = bigDecimalChuFa(b(1001), b(20));
+//            p(map);
+//        }
+
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
