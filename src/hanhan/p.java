@@ -661,6 +661,16 @@ public strictfp class p {
             }
         }
     }
+
+
+
+
+    /**
+     *传入一个Bigdecimal,如果是null,就变为0
+     * */
+    public static BigDecimal bNull0(BigDecimal b){
+        return null==b?new BigDecimal(0):b;
+    }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
