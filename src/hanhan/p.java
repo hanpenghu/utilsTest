@@ -671,6 +671,29 @@ public strictfp class p {
     public static BigDecimal bNull0(BigDecimal b){
         return null==b?new BigDecimal(0):b;
     }
+
+    /**
+     *bigDecimal比大小
+     * */
+
+
+    public static boolean isFirstBig(BigDecimal b1,BigDecimal b2){
+        return b1.compareTo(b2)==1?true:false;
+    }
+
+    public static boolean isFistSmall(BigDecimal b1,BigDecimal b2){
+        return b1.compareTo(b2)==-1?true:false;
+    }
+    public static boolean isEqual(BigDecimal b1,BigDecimal b2){
+        return b1.compareTo(b2)==0?true:false;
+    }
+
+//
+//    public static void main(String[]args){
+//        p.p(p.isFirstBig(p.b(1),p.b(0.5)));
+//        p.p(p.isFistSmall(p.b(1),p.b(2)));
+//        p.p(p.isEqual(p.b(3),p.b(2)));
+//    }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
