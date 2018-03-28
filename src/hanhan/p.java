@@ -30,6 +30,9 @@ public strictfp class p {
     private final static String emailPattern2 =
             "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 
+    public static final String noExceptionSign ="《没有异常》";
+    public static final String knownExceptionSign ="《已知异常》";
+    public static final String unKnownExceptionSign ="《未知异常》";
     public static final String beiChuShu="beiChuShu";
     public static final String chuShu="chuShu";
     public static final String shang="shang";
