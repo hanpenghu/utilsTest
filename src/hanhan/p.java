@@ -2342,6 +2342,27 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //        String s101 = p.changeCharsetNull(s, "utf-8", "utf-8");
 //        p.p(s101);
 //    }
+/////////////////////////////微信排序///////////////////////////////////////////////////////////////////////////
+
+    /**
+     *根据list排序参数
+     * 字典排序
+     * */
+    //排序后不拼接字符串
+    public static List<String> ziDianPaiXu(List<String> weiPaiXuDeZiFuChuanJiHe){
+        Collections.sort(weiPaiXuDeZiFuChuanJiHe);
+        return weiPaiXuDeZiFuChuanJiHe;
+    }
+
+    //排序后再拼接字符串
+    public static String ziDianPaiXuBingPinJie(List<String> weiPaiXuDeZiFuChuanJiHe){
+        Collections.sort(weiPaiXuDeZiFuChuanJiHe);
+        StringBuilder sb=new StringBuilder();
+        for(String s:weiPaiXuDeZiFuChuanJiHe){
+            sb.append(s);
+        }
+        return sb.toString();
+    }
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
