@@ -45,6 +45,7 @@ public strictfp class p {
     public static final String excel="excel";
     public static final String zhifgf="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";//至分隔符
     public static final String zhi="~";//至符号
+    public static final String zuHeFenGeFu="{~}";//组合分隔符,常用于分隔各种字符串组合
     public static final String manyMinus="--------------------------------------------";
     public static final String manyMinusBefore="\n--------------------------------------------";
     public static final String manyMinusAfter="--------------------------------------------\n";
@@ -158,6 +159,79 @@ public strictfp class p {
 
 
 
+    /**
+     *按顺序拆分带组合分隔符的字符串
+     * 适用于
+     *
+     * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的{~}
+     *
+     * 这种
+     * 最后还带分隔符的组合
+     * 截取后是
+     * [阿拉山口打飞, 机爱丽丝打飞, 机埃里克的]
+     * */
+    public static List<String>chaiFenZuHeFenGeFu(String s){
+        List<String>list=new LinkedList<>();
+        while(s.contains(zuHeFenGeFu)){
+            //就是按照{~}拆分
+            String ss = s.substring(0, s.indexOf(zuHeFenGeFu));
+            list.add(ss);
+            s=s.substring(s.indexOf(zuHeFenGeFu)+3);
+        }
+
+        return list;
+    }
+
+
+    /**
+     ** 适用于
+     *
+     * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的
+     *
+     * 这种最后没有分隔符的组合
+     * 截取后是
+     * [阿拉山口打飞, 机爱丽丝打飞, 机埃里克的]
+     * */
+    public static List<String>chaiFenZuHeFenGeFu0(String s){
+        return chaiFenZuHeFenGeFu(s+zuHeFenGeFu);
+
+    }
+
+
+    /**
+     *自定义组合符号的拆分
+     * 用于字符串最后有分隔符的
+     * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的{~}
+     * */
+    public static List<String>chaiFenZuHeFenGeFu(String s,String zuHeFenGeFuHao,int zuHeFuHaoChangDu){
+        List<String>list=new LinkedList<>();
+        while(s.contains(zuHeFenGeFuHao)){
+            //就是按照{~}拆分
+            String ss = s.substring(0, s.indexOf(zuHeFenGeFuHao));
+            list.add(ss);
+            s=s.substring(s.indexOf(zuHeFenGeFuHao)+zuHeFuHaoChangDu);
+        }
+
+        return list;
+    }
+
+    /**
+     *用于字符串最后没有分隔符的
+     * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的
+     * 根据  ~  拆完是
+     * [阿拉山口打飞{, }机爱丽丝打飞{, }机埃里克的]
+     * */
+    public static List<String>chaiFenZuHeFenGeFu0(String s,String zuHeFenGeFuHao,int zuHeFuHaoChangDu){
+        return chaiFenZuHeFenGeFu(s+zuHeFenGeFuHao,zuHeFenGeFuHao,zuHeFuHaoChangDu);
+
+    }
+
+//    public static void main(String[]args){
+//            String s="阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的";
+//        p.p("-------------------------------------------------------");
+//        p.p(chaiFenZuHeFenGeFu0(s,"~",1));
+//        p.p("-------------------------------------------------------");
+//    }
 
     /**
      *生成新类new封装
@@ -1880,6 +1954,8 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
     /**
      *读当前类所在目录下面的文件
+     *
+     * 对于springboot等打包的jar项目无效
      * */
 
 
@@ -1893,7 +1969,14 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 
 //    public static void main(String[]args){
-//        String s = duDangQianLeiMuLuXiaDeWenJian("1", p.class, p.UTF8);
+//        p.p("-------------------------------------------------------");
+//        p.p(duDangQianLeiMuLuXiaDeWenJian("1",p.class,p.UTF8));
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+//    public static void main(String[]args){
+//        String s = duDangQianLeiMuLuXiaDeWenJian("1", arraylist.class, p.UTF8);
 //        p.p("-------------------------------------------------------");
 //        p.p(s);
 //        p.p("-------------------------------------------------------");
@@ -2031,6 +2114,19 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             //           E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/
             s=s.substring(1);
         }
+        return s;
+    }
+
+
+    /**
+     /E:/1/work_space/CloudPlatformMobile002/target/classes/
+     这种最前面带/的路径,  跟不带一样  但是这种路径对于打包的springboot来讲,是灾难的
+     因为打包后,就无法深入到jar文件内部去读取了
+     * */
+    public static String srcPathYuan(){
+        //得到的很可能是这种路径
+        //          /E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/
+        String s= p.class.getResource("/").getPath();
         return s;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
