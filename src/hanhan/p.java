@@ -30,6 +30,10 @@ public strictfp class p {
     private final static String emailPattern2 =
             "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 
+
+
+    public static final String jpeg=".jpeg";
+    public static final String jpg="jpg";
     public static final String noExceptionSign ="《没有异常》";
     public static final String knownExceptionSign ="《已知异常》";
     public static final String unKnownExceptionSign ="《未知异常》";
