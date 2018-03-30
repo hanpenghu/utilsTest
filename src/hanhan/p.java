@@ -1878,7 +1878,28 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 
 
+    /**
+     *读当前类所在目录下面的文件
+     * */
 
+
+    public static String duDangQianLeiMuLuXiaDeWenJian(String wenJianMing,Class dangQianLeiClazz,String charSetOfTxt){
+
+        InputStream resourceAsStream = dangQianLeiClazz.getResourceAsStream(wenJianMing);
+
+
+        return readInputToString(resourceAsStream,charSetOfTxt);
+
+    }
+
+//    public static void main(String[]args){
+//        String s = duDangQianLeiMuLuXiaDeWenJian("1", p.class, p.UTF8);
+//        p.p("-------------------------------------------------------");
+//        p.p(s);
+//        p.p("-------------------------------------------------------");
+//
+//
+//    }
 
     /**
      *读取项目里面某个文件夹下的txt为String
@@ -1991,8 +2012,12 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //    }
 
 
+
+
+
+
     /**
-     *
+     *  这种玩意对于导包jar的java启动文件有灾难性的后果,因为jar里面的路径从外面一直读是读不进去的
      *通过当前类 得到工程根目录,根路径  就是得到src路径
      * E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/
      * */
