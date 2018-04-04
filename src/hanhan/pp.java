@@ -2,6 +2,9 @@ package hanhan;
 
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.IOUtils;
+
+import java.io.*;
 
 /**
  *用于测试封装外部jar包的工具
@@ -24,6 +27,23 @@ public class pp {
 
         return DigestUtils.shaHex(s);
     }
+
+
+    /**
+     *根据编码来读取文本
+     * 参数  luJing
+     * 可以是全路径
+     * springboot的如果是跟jar包同一级路径的文件,只要写文件名就好了
+     * */
+
+    public static String usCodeReadTxt(String luJing,String bianMa) throws IOException {
+        return IOUtils.toString(new FileInputStream(luJing),bianMa);
+    }
+
+    public static String usCodeReadTxt(File file,String bianMa) throws IOException {
+        return IOUtils.toString(new FileInputStream(file),bianMa);
+    }
+
 
 
 
