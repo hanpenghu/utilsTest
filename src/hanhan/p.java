@@ -1899,6 +1899,13 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      * String pa = p.readAllTxt("资源文件.txt")
      * 在项目中就能读取
      *
+     *
+     * 注意,这玩意在云蕊服务器上连接微信的时候
+     * 读取txt文件必须是ansi格式编码,原来的utf-8编码被读后是乱码
+     * 这个可能跟txt文件在jar包外面和平台编码有关
+     *
+     * 就是说在读jar外面的文件,最好用notpad++转换成ANSI编码
+     *
      * */
 
     public static String readAllTxt(File file){
