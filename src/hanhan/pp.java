@@ -36,12 +36,20 @@ public class pp {
      * springboot的如果是跟jar包同一级路径的文件,只要写文件名就好了
      * */
 
-    public static String usCodeReadTxt(String luJing,String bianMa) throws IOException {
-        return IOUtils.toString(new FileInputStream(luJing),bianMa);
+    public static String usCodeReadTxt(String luJing,String bianMa)  {
+        try {
+            return IOUtils.toString(new FileInputStream(luJing),bianMa);
+        } catch (IOException e) {
+            return "";
+        }
     }
 
-    public static String usCodeReadTxt(File file,String bianMa) throws IOException {
-        return IOUtils.toString(new FileInputStream(file),bianMa);
+    public static String usCodeReadTxt(File file,String bianMa) {
+        try {
+            return IOUtils.toString(new FileInputStream(file),bianMa);
+        } catch (IOException e) {
+            return "";
+        }
     }
 
 
