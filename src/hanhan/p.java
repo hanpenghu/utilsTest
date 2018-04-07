@@ -1510,6 +1510,31 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     *下面这个方法通常用于前端传过来的有
+     * 文件
+     * 我们通过
+     * 文件名
+     * 和
+     * 得到的
+     * 绝对路径
+     * 来拼凑一个文件
+     * 再创建
+     * dirAbsolutePath
+     * 是最后带一个斜杠的文件夹路径
+     * fileName是文件名字
+     *
+     *
+     * */
+    public static File getFileByFileNameAndAbsolutePath(String dirAbsolutePath,String fileName){
+        return new File(dirAbsolutePath, fileName);
+
+    }
+    //file.getAbsolutePath()  de dao de shi  zui hou dai  gang de jue dui lu jing
+    public static File getFileByFileNameAndAbsolutePath(File file,String fileName){
+        return new File(file.getAbsolutePath(), fileName);
+
+    }
 
     /**
      *删除文件
@@ -1520,6 +1545,19 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
     }
 
+    /**
+     *通过路径打得到一个file,如果是springboot jar包同一级目录,路径指的就是一个文件名
+     * 如果是其他项目,路径一般指的是全路径名
+     * //注意,该方法如果不存在这个文件就会返回null是将来作为判断的
+     * */
+    public static File getFile(String path){
+        File file = new File(path);
+        if(file.exists()){
+            return file;
+        }else{
+            return null;
+        }
+    }
 
     /**
      *根据文件判断文件是否存在
