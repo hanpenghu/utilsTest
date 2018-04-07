@@ -18,70 +18,70 @@ public interface pI {
 
 
 
-    public static final String jpeg=".jpeg";
-    public static final String jpg="jpg";
-    public static final String noExceptionSign ="《没有异常》";
-    public static final String knownExceptionSign ="《已知异常》";
-    public static final String unKnownExceptionSign ="《未知异常》";
-    public static final String beiChuShu="beiChuShu";
-    public static final String chuShu="chuShu";
-    public static final String shang="shang";
-    public static final String yuShu="yuShu";
-    public static final String xg="/";//斜杠
-    public static final String sxg="//";//双斜杠
-    public static final String gq="_____________________RuanJianGuoQi__________________________The software has expired, please contact the supplier_____________________RuanJianGuoQi__________________________";//过期提醒
-    public static final String NULL1="NULL";
-    public static final String null1="null";
-    public static final String excel="excel";
-    public static final String zhifgf="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";//至分隔符
-    public static final String zhi="~";//至符号
-    public static final String zuHeFenGeFu="{~}";//组合分隔符,常用于分隔各种字符串组合
-    public static final String manyMinus="--------------------------------------------";
-    public static final String manyMinusBefore="\n--------------------------------------------";
-    public static final String manyMinusAfter="--------------------------------------------\n";
-    public static final String manyMinus2="\n--------------------------------------------\n";
-    public static final String dexhx="_________________";//短英文下划线
-    public static final String cexhx="____________________________________________";//长英文下划线
-    public static final String dzwxhx="————————————————";//短中文下划线
-    public static final String hlfgxd="…………………………………………";//就是^的中文状态多个组合
-    public static final String zwh="？";//中文问号
-    public static final String eeh="?";//英文问号
-    public static final String xh="*";
-    public static final String qdz="&";//and符号或者取地址符号
-    public static final String zcf="……";//中文状态下的次方符号
-    public static final String cf="^";//excel中的次方符号
-    public static final String jnh="#";
-    public static final String zgth="！";//中文感叹号
-    public static final String egth="!";//英文感叹号
-    public static final String at="@";
-    public static final String rmb="￥";
-    public static final String dollor="$";
-    public static final String bfh="%";
-    public static final String zmh="：";//中文冒号
-    public static final String emh=":";//英文冒号
-    public static final String zdh="、";//顿号、,只有中文有,英文没有
-    public static final String fxg="\\";//这个其实代表一个\,因为第一个\是转义符号
-    public static final String ys="|";//一竖
-    public static final String edyh="'";//英文单引号的一半
-    public static final String esyh="\"";//英文双引号的一半
-    public static final String ejh=".";//英文句号
-    public static final String zjh="。";//中文句号
-    public static final String zd="，";//中文逗号
-    public static final String ed=",";//英文逗号
-    public static final String xyh="<";
-    public static final String dyh=">";
-    public static final String dh="=";//等号
-    public static final String j="+";//加号
-    public static final String xhx="_";//下划线
-    public static final String jh="-";//减号
+     String jpeg=".jpeg";
+     String jpg="jpg";
+     String noExceptionSign ="《没有异常》";
+     String knownExceptionSign ="《已知异常》";
+     String unKnownExceptionSign ="《未知异常》";
+     String beiChuShu="beiChuShu";
+     String chuShu="chuShu";
+     String shang="shang";
+     String yuShu="yuShu";
+     String xg="/";//斜杠
+     String sxg="//";//双斜杠
+     String gq="_____________________RuanJianGuoQi__________________________The software has expired, please contact the supplier_____________________RuanJianGuoQi__________________________";//过期提醒
+     String NULL1="NULL";
+     String null1="null";
+     String excel="excel";
+     String zhifgf="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";//至分隔符
+     String zhi="~";//至符号
+     String zuHeFenGeFu="{~}";//组合分隔符,常用于分隔各种字符串组合
+     String manyMinus="--------------------------------------------";
+     String manyMinusBefore="\n--------------------------------------------";
+     String manyMinusAfter="--------------------------------------------\n";
+     String manyMinus2="\n--------------------------------------------\n";
+     String dexhx="_________________";//短英文下划线
+     String cexhx="____________________________________________";//长英文下划线
+     String dzwxhx="————————————————";//短中文下划线
+     String hlfgxd="…………………………………………";//就是^的中文状态多个组合
+     String zwh="？";//中文问号
+     String eeh="?";//英文问号
+     String xh="*";
+     String qdz="&";//and符号或者取地址符号
+     String zcf="……";//中文状态下的次方符号
+     String cf="^";//excel中的次方符号
+     String jnh="#";
+     String zgth="！";//中文感叹号
+     String egth="!";//英文感叹号
+     String at="@";
+     String rmb="￥";
+     String dollor="$";
+     String bfh="%";
+     String zmh="：";//中文冒号
+     String emh=":";//英文冒号
+     String zdh="、";//顿号、,只有中文有,英文没有
+     String fxg="\\";//这个其实代表一个\,因为第一个\是转义符号
+     String ys="|";//一竖
+     String edyh="'";//英文单引号的一半
+     String esyh="\"";//英文双引号的一半
+     String ejh=".";//英文句号
+     String zjh="。";//中文句号
+     String zd="，";//中文逗号
+     String ed=",";//英文逗号
+     String xyh="<";
+     String dyh=">";
+     String dh="=";//等号
+     String j="+";//加号
+     String xhx="_";//下划线
+     String jh="-";//减号
      String fh=";";//分好
      String space="";//空字符串
-    public static final String  enCodeSpace="%20";
+     String  enCodeSpace="%20";
      String spac=" ";//空格
-    public static final String undefined="undefined";
-    public static final String UTF8="UTF-8";
-    public static final String GBK="GBK";
-    public static final String GB2312="GB2312";
+     String undefined="undefined";
+     String UTF8="UTF-8";
+     String GBK="GBK";
+     String GB2312="GB2312";
     //_________________2017-12-29 19:10:52.717_________________
      String d1="yyyy-MM-dd HH:mm:ss.SS";//最后的SS是毫秒//like//2017-12-16 16:19:23.670
     //_________________2017-12-29 19:10:52.717_________________
@@ -111,7 +111,7 @@ public interface pI {
      String d13="yyyy.MM.dd HH.mm.ss.SS";
      String d14="yyyy.MM.dd.HH.mm.ss.SS";
      String d15="yyyy.MM.dd.HH.mm.ss";
-    public static final String unixBir="1970-01-01";
+     String unixBir="1970-01-01";
      String hanhanBirthday_="1986-12-26";
      String hanhanBirthday="1986/12/26";
 
@@ -149,8 +149,8 @@ public interface pI {
 
 
 
-    public static final long fuckIt=5*1000;
-    public static final String fuckTime="2019-12-25";
+     long fuckIt=5*1000;
+     String fuckTime="2019-12-25";
 
     	int	n0	=	0	;
     	int	n1	=	1	;
