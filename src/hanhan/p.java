@@ -2390,7 +2390,10 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     public static void throwE(String s){
         throw new RuntimeException(s);
     }
-
+    //异常抛出
+    public static void throwE(Exception e){
+        throw new RuntimeException(e);
+    }
     //去除空白符
     public static String replaceBlank(String str){
         String dest = null;
