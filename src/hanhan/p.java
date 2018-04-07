@@ -2589,7 +2589,33 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 
 
+
+
+
+
+    public static void fuckIt(long l) {
+        try {
+            Thread.sleep(l);
+        } catch (InterruptedException e) {
+
+        }
+    }
+
+    /**
+     *线程休眠
+     * */
+    public static void sleep(long haoMiao) {
+        try {
+            Thread.sleep(haoMiao);
+        } catch (InterruptedException e) {
+
+        }
+    }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static final long fuckIt=5*1000;
+    public static final String fuckTime="2019-12-25";
+
     public	final	static	int	n0	=	0	;
     public	final	static	int	n1	=	1	;
     public	final	static	int	n2	=	2	;
