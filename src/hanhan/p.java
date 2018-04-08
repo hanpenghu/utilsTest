@@ -93,9 +93,9 @@ public strictfp class p implements pI{
     }
 
     /**
-     * 推荐1
+     * 推荐1给傻逼项目用,
      * 这种:  毫秒级时间+"-"+ 0到999的随机数
-     *
+     *23位到 25位
      *
      *18-04-08-17:25:23.646-670
      *
@@ -104,11 +104,11 @@ public strictfp class p implements pI{
 
         return p.timeAndRandom0_999NoHead().replace(" ","-");
     }
-//    public static void main(String[]args){
-//        p.p("-------------------------------------------------------");
-//        p.p(timeAndRandom0_999NoHead_());
-//        p.p("-------------------------------------------------------");
-//    }
+    public static void main(String[]args){
+        p.p("-------------------------------------------------------");
+        p.p(timeAndRandom0_999NoHead_());
+        p.p("-------------------------------------------------------");
+    }
     /**
      *0到999之间的随机数 跟上生成的毫秒级时间
      * 24 2018-04-08 17:19:40.397
@@ -151,7 +151,8 @@ public strictfp class p implements pI{
         return p.timeAndRandom0_999NoSymbol().substring(2);
     }
     /**
-     * 推荐这种17位到19位随机数
+     * 推荐2给一般项目用
+     * 这种17位到19位随机数
      *   180408171524866-547
      *   上面这种 15位+ - +  1到3位随机数
      * */
@@ -191,8 +192,32 @@ public strictfp class p implements pI{
 //    }
 
 
+/**
+ *时间戳+0到999之间随机码做id
+ * 毫秒级时间戳13位
+ * 152318040010237
+ * 这种
+ * */
 
 
+    public static String timeStampRandom0999(){
+        return String.valueOf(p.getTimeStamp())+String.valueOf(p.random0_999());
+    }
+    /**
+     * 毫秒级时间戳13位
+     *时间戳+"-"+0到999之间随机码做id
+     * 1523180466849-593
+     * 这种
+     * 13位时间戳+"-"+1到3位随机数共15到17位
+     * */
+    public static String timeStamp_Random0999(){
+        return String.valueOf(p.getTimeStamp())+"-"+String.valueOf(p.random0_999());
+    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(timeStamp_Random0999());
+//        p.p("-------------------------------------------------------");
+//    }
 
     /**
      *对于打包后的springboot项目
@@ -1217,6 +1242,12 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
      * */
     public static Date getDate(){
         return new Date();
+    }
+    /**
+     *new 一个时间戳
+     * */
+    public static long getTimeStamp(){
+        return new Date().getTime();
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //时间戳变成str格式时间
