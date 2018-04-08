@@ -104,11 +104,11 @@ public strictfp class p implements pI{
 
         return p.timeAndRandom0_999NoHead().replace(" ","-");
     }
-    public static void main(String[]args){
-        p.p("-------------------------------------------------------");
-        p.p(timeAndRandom0_999NoHead_());
-        p.p("-------------------------------------------------------");
-    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(timeAndRandom0_999NoHead_());
+//        p.p("-------------------------------------------------------");
+//    }
     /**
      *0到999之间的随机数 跟上生成的毫秒级时间
      * 24 2018-04-08 17:19:40.397
