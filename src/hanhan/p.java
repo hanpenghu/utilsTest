@@ -9,6 +9,7 @@ import java.io.*;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.security.MessageDigest;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -17,6 +18,182 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 //import java.util.regex.Matcher;
 public strictfp class p implements pI{
+//    public static void main(String[]args){
+//        p.p("----------------------测试毫秒级别时间---------------------------------");
+//        p.p(p.dtoStr(p.getDate(),p.d16));
+//        p.p("-------------------------------------------------------");
+////        ----------------------测试毫秒级别时间---------------------------------
+////                2018-04-08 15:47:20.240
+////                -------------------------------------------------------
+//    }
+
+
+
+    /*【群主】变色龙 2018-04-08 15:52:41
+    一般 秒级 + 3位随机数*/
+
+
+    /**
+     *生成2数字之间的随机数,其实是[min,max],其实就是这个区间包括min,也包括max
+     * */
+    public static int randomDigit(int min,int max){
+        Random random = new Random();
+        int s = random.nextInt(max)%(max-min+1) + min;
+        return s;
+    }
+    /**
+     *生成0到100之间的随机数
+     * */
+    public static int random0_100(){
+        Random random = new Random();
+        int s = random.nextInt(100);
+        return s;
+    }
+
+    /**
+     *生成0到999之间的随机数
+     * */
+    public static int random0_999(){
+        Random random = new Random();
+        int s = random.nextInt(999);
+        return s;
+    }
+
+
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(random0_999AndTime());
+//        p.p("-------------------------------------------------------");
+//    }
+    /**
+     *
+     *毫秒级时间+0到999之间的随机数
+     * 2018-04-08 17:20:18.507 84
+     * */
+    public static String  timeAndRandom0_999(){
+        Random random = new Random();
+        int s = random.nextInt(999);
+        String s101 = p.dtoStr(p.getDate(), d16)+" "+p.strValeOf(s);
+        return s101;
+    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(timeAndRandom0_999());
+//        p.p("-------------------------------------------------------");
+//    }
+    /**
+     *
+     * 这种
+     *18-04-08 17:22:57.666 634
+     * */
+    public static String  timeAndRandom0_999NoHead(){
+
+        return p.timeAndRandom0_999().substring(2);
+    }
+
+    /**
+     * 推荐1
+     * 这种:  时间+"-"+ 0到999的随机数
+     *
+     *
+     *18-04-08-17:25:23.646-670
+     *
+     * */
+    public static String  timeAndRandom0_999NoHead_(){
+
+        return p.timeAndRandom0_999NoHead().replace(" ","-");
+    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(timeAndRandom0_999NoHead_());
+//        p.p("-------------------------------------------------------");
+//    }
+    /**
+     *0到999之间的随机数 跟上生成的毫秒级时间
+     * 24 2018-04-08 17:19:40.397
+     * */
+    public static String  random0_999AndTime(){
+        Random random = new Random();
+        int s = random.nextInt(999);
+        String s101 = p.strValeOf(s)+" "+ p.dtoStr(p.getDate(), d16);
+        return s101;
+    }
+    /**
+     *毫秒级时间去掉符号+" "+随机码
+     * Symbol是随机码的意思
+     * 20180408165527961 737
+     * 上面这种
+     * */
+    public static String  timeAndRandom0_999NoSymbol(){
+        Random random = new Random();
+        int s = random.nextInt(999);
+        String s101 = p.dtoStr(p.getDate(), d16).replace(" ","")+" "+p.strValeOf(s);
+        s101=s101.replace("-","");
+        s101=s101.replace(":","");
+        s101=s101.replace(".","");
+        return s101;
+    }
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(timeAndRandom0_999NoSymbol());
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+    /**
+     * 种17位到19位随机数
+     *   180408170201088 878
+     *   上面这种 15位+一位空格+  1到3位随机数
+     * */
+    public static String  timeAndRandom0_999NoSymbolRemoveHead(){
+        return p.timeAndRandom0_999NoSymbol().substring(2);
+    }
+    /**
+     * 推荐这种17位到19位随机数
+     *   180408171524866-547
+     *   上面这种 15位+ - +  1到3位随机数
+     * */
+    public static String  timeAndRandom0_999NoSymbolRemoveHead_(){
+        return p.timeAndRandom0_999NoSymbolRemoveHead().replace(" ","-");
+    }
+
+    /**
+     *毫秒级时间去掉符号+" "+随机码
+     * Symbol是随机码的意思
+     * 20180408165748545179
+     * 上面这种
+     * */
+    public static String  timeAndRandom0_999NoSymbolNoSpace(){
+        Random random = new Random();
+        int s = random.nextInt(999);
+        String s101 = p.dtoStr(p.getDate(), d16).replace(" ","")+p.strValeOf(s);
+        s101=s101.replace("-","");
+        s101=s101.replace(":","");
+        s101=s101.replace(".","");
+        return s101;
+    }
+
+    /**
+     *180408170814386251
+     * 这种,时间去掉20这个头后+0到999之间的随机数
+     * */
+    public static String  timeAndRandom0_999NoSymbolNoSpaceRemoveHead(){
+
+        return p.timeAndRandom0_999NoSymbolNoSpace().substring(2);
+    }
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(timeAndRandom0_999NoSymbolRemoveHead_());
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+
+
+
     /**
      *对于打包后的springboot项目
      * 我们怎么读取资源路径？
