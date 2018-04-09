@@ -109,6 +109,36 @@ public strictfp class p implements pI{
 //        p.p(timeAndRandom0_999NoHead_());
 //        p.p("-------------------------------------------------------");
 //    }
+
+    /**
+     * 推荐
+     *保险的id
+     * 时间+八位随机数
+     * 2018-04-09 11:37:35.982 11074079
+     * 固定带2个空格是32位
+     * 其中时间23位
+     * */
+
+    public static String timeAnd8Wei(){
+        byte[] lock = new byte[0];
+        // 位数，默认是8位
+        long w = 100000000;
+        long r = 0;
+        synchronized (lock) {
+            r = (long) ((Math.random() + 1) * w);
+        }
+        return p.dtoStr(p.getDate(),p.d16) +" "+ String.valueOf(r).substring(1);
+    }
+//    public static void main(String[]args){
+//
+//
+//        p.p("-------------------------------------------------------");
+//        p.p(timeAnd8Wei());
+//        p.p("-------------------------------------------------------");
+//
+//
+//    }
+
     /**
      *0到999之间的随机数 跟上生成的毫秒级时间
      * 24 2018-04-08 17:19:40.397
