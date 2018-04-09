@@ -104,12 +104,23 @@ public strictfp class p implements pI{
 
         return p.timeAndRandom0_999NoHead().replace(" ","-");
     }
-//    public static void main(String[]args){
-//        p.p("-------------------------------------------------------");
-//        p.p(timeAndRandom0_999NoHead_());
-//        p.p("-------------------------------------------------------");
-//    }
+    public static void main(String[]args){
+        p.p("-------------------------------------------------------");
+        p.p(timeAndRandom0_999NoHead_1());
+        p.p("-------------------------------------------------------");
+    }
 
+    /**
+     * 推荐3给傻逼项目
+     *下面这种23到25位是上面的变形版
+     * ,主要是用于文件名的时候冒号不行的改进
+     * 18-04-09-12_03_56.108-347
+     * 这种
+     * */
+    public static String  timeAndRandom0_999NoHead_1(){
+
+        return p.timeAndRandom0_999NoHead_().replace(":","_");
+    }
     /**
      * 推荐
      *保险的id
